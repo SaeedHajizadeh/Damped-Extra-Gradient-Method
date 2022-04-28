@@ -47,16 +47,6 @@ A = 50
 
 
 
-# A = 40
-# Θ = 132  # The norm of Hessian when |x| < 4
-# eta = 22
-# rho = 20
-#
-# alpha = -rho + A^2/(eta - rho)
-# lambda = 1
-#
-# T = 10000
-
 
 
 
@@ -166,30 +156,12 @@ end
 
 
 
-p = plot(runEGTest(A , (4.0 , 0.4)), xlims=(-4.5,4.5),ylims=(-4,4), size=(500,500),xtickfontsize=18,ytickfontsize=18,xguidefontsize=18,  st=:path, legend=false, fmt = :png, arrow=1, linewidth=2)#, xaxis=string("A=",A))
-
-# p = plot(runEGTest(A , (1 , 3)), xlims=(-4.05,4.5),ylims=(-4,4), size=(500,500),xtickfontsize=18,ytickfontsize=18,xguidefontsize=18, markershape = :circle, st=:path, legend=false, fmt = :png, arrow=1, linewidth=2)#, xaxis=string("A=",A))
 
 
 
 
-
-
-
-
-A = 20
-β = 100 #Upperbound that holds whenever |x|<3
-ρ = 20 #Computed at the origin, which has the largest negative curavture
-α = -ρ + A^2/(2*(β+ρ))
-
-### Define algorithm paramters
-    η = 1.5*ρ
-    T = 10000
-    λ = 0.2 #1/(8+16*ρ/α)
-    ϵ = 0.0000001 #Level of precision that computations should be run t
 
 
 p = makePlotNonaccelerated(A, runPPMNonAccelerated)
 p = makePlot(A, runPPMNonAccelerated)
 p = makePlot(A, runEGTest)
-savefig(p , "DampedPPMA1.png")
